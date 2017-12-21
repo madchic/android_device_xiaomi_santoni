@@ -114,7 +114,6 @@ persist.audio.native.48kHz=true
 pcm.channels=8
 persist.audio.SupportHTCHWAEC=1
 clock.allow_streaming_errors=false
-audio.converter.samplerate.libsamplerate.quality=best
 defaults.pcm.rate_converter=speexrate_best
 defaults.pcm.rate_converter=samplerate_best
 persist.audio.vr.enable=true
@@ -163,7 +162,6 @@ ro.config.disable.hw_accel=false
 ro.max.fling_velocity=14000
 ro.min.fling_velocity=8000
 hw3d.force=1
-ro.media.codec_priority_for_thumb=hw
 debug.qc.hardware=true
 com.qc.hardware=true
 

@@ -1004,8 +1004,8 @@
         <ctl name="RDAC2 MUX" value="RX2" />
 	<ctl name="RX1 Digital Volume" value="87" />
 	<ctl name="RX2 Digital Volume" value="87" />
-	<ctl name="RX1 HPF cut off" value="MIN_3DB_20Hz" />
-	<ctl name="RX2 HPF cut off" value="MIN_3DB_20Hz" />
+	<ctl name="RX1 HPF cut off" value="MIN_3DB_10Hz" />
+	<ctl name="RX2 HPF cut off" value="MIN_3DB_10Hz" />
         <ctl name="HPHL" value="Switch" />
         <ctl name="HPHR" value="Switch" />
         <ctl name="headset amp" value="ENABLE"/>

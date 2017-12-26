@@ -884,8 +884,6 @@
 	<ctl name="MI2S_RX Format" value="S24_3LE" />
         <ctl name="PRI_MI2S_RX Format" value="S24_3LE" />
 	<ctl name="RX2 MIX1 INP1" value="RX2" />
-	<ctl name="IIR1 INP1 MUX" value="RX2" />
-	<ctl name="RX2 MIX1 INP2" value="IIR1" />
     	<ctl name="RX2 HPF cut off" value="MIN_3DB_45Hz" />
 	<ctl name="RX2 Digital Volume" value="86" />
 	<ctl name="IIR1 INP1 Volume" value="82" />
@@ -894,11 +892,6 @@
         <ctl name="Lineout_1 amp" value="ENABLE"/>
 	<ctl name="SpkrMono BOOST Switch" value="1" />
 	<ctl name="SpkrMono VISENSE Switch" value="1" />
-  	<ctl name="IIR1 Enable Band1" value="1" />
-    	<ctl name="IIR1 Enable Band2" value="1" />
-    	<ctl name="IIR1 Enable Band3" value="1" />
-    	<ctl name="IIR1 Enable Band4" value="1" />
-    	<ctl name="IIR1 Enable Band5" value="1" />
    </path>
 
     <path name="wsa-speaker">
@@ -906,8 +899,6 @@
 	<ctl name="MI2S_RX Format" value="S24_3LE" />
         <ctl name="PRI_MI2S_RX Format" value="S24_3LE" />
         <ctl name="RX1 MIX1 INP1" value="RX1" />
-	<ctl name="IIR1 INP1 MUX" value="RX1" />
-	<ctl name="RX1 MIX1 INP2" value="IIR1" />
 	<ctl name="RX1 HPF cut off" value="MIN_3DB_45Hz" />
         <ctl name="RX1 Digital Volume" value="86" />
 	<ctl name="IIR1 INP1 Volume" value="82" />
@@ -915,11 +906,6 @@
         <ctl name="WSA Spk Switch" value="WSA" />
         <ctl name="SpkrMono WSA_RDAC" value="Switch" />
 	<ctl name="SpkrMono VISENSE Switch" value="1" />
-	<ctl name="IIR1 Enable Band1" value="1" />
-    	<ctl name="IIR1 Enable Band2" value="1" />
-    	<ctl name="IIR1 Enable Band3" value="1" />
-    	<ctl name="IIR1 Enable Band4" value="1" />
-    	<ctl name="IIR1 Enable Band5" value="1" />
    </path>
 
    <path name="spkr-rx-calib">
@@ -948,12 +934,9 @@
 
       <path name="handset">
         <ctl name="RX1 MIX1 INP1" value="RX1" />
-	<ctl name="IIR1 INP1 MUX" value="RX1" />
-	<ctl name="RX1 MIX1 INP2" value="IIR1" />
         <ctl name="RDAC2 MUX" value="RX1" />
 	<ctl name="RX1 HPF cut off" value="MIN_3DB_80Hz" />
         <ctl name="RX1 Digital Volume" value="90" />
-	<ctl name="IIR1 INP1 Volume" value="80" />
         <ctl name="EAR PA Gain" value="POS_6_DB" />
         <ctl name="EAR_S" value="Switch" />
     </path>

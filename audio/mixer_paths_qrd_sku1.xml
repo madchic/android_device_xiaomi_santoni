@@ -886,7 +886,6 @@
 	<ctl name="RX2 MIX1 INP1" value="RX2" />
     	<ctl name="RX2 HPF cut off" value="MIN_3DB_45Hz" />
 	<ctl name="RX2 Digital Volume" value="86" />
-	<ctl name="IIR1 INP1 Volume" value="82" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHR" value="Switch" />
         <ctl name="Lineout_1 amp" value="ENABLE"/>
@@ -901,7 +900,6 @@
         <ctl name="RX1 MIX1 INP1" value="RX1" />
 	<ctl name="RX1 HPF cut off" value="MIN_3DB_45Hz" />
         <ctl name="RX1 Digital Volume" value="86" />
-	<ctl name="IIR1 INP1 Volume" value="82" />
         <ctl name="RDAC2 MUX" value="RX1" />
         <ctl name="WSA Spk Switch" value="WSA" />
         <ctl name="SpkrMono WSA_RDAC" value="Switch" />

@@ -86,10 +86,6 @@ audio.ds1.metainfo.key=273
 dmid=-1286820014
 dolby.audio.sink.info=speaker
 dolby.monospeaker=true
-dolby.ds.intelligenteq.preset=Open
-dolby.ds.intelligenteq.state=on
-dolby.ds.spkvirtualizer.state=on
-dolby.ds.dialogenhancer.state=on
 
 #Extra audio optimizations
 ro.config.vc_call_vol_steps=20

@@ -2422,7 +2422,7 @@ echo 2500000 > /sys/class/power_supply/battery/constant_charge_current_max
 #Maximum USB_DCP USB_HVDCP and USB_HVDCP3 currents
 echo 2200 > /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma
 echo 1800 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma
-echo 3000 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp3_icl_ma
+echo 3100 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp3_icl_ma
 echo 1800 > /sys/module/dwc3_msm/parameters/hvdcp_max_current
 echo 2200 > /sys/module/dwc3_msm/parameters/dcp_max_current
 
@@ -2439,7 +2439,7 @@ chmod 644 /sys/class/power_supply/bms/temp_warm
 #GPU PowerLevel
 chown system:system /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 chmod 666 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
-echo "5" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+echo "9" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 chmod 444 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 #Extra system tweaks
@@ -2454,12 +2454,12 @@ echo "5120" > /proc/sys/vm/min_free_kbytes;
 echo "15728,23592,39321,70778,78643,86507" > /sys/module/lowmemorykiller/parameters/minfree;
 
 #CPU Affinity
-echo "2" > /sys/block/mmcblk0/queue/rq_affinity
+echo "4" > /sys/block/mmcblk0/queue/rq_affinity
 echo "2" > /sys/block/mmcblk1/queue/rq_affinity
 
 #Cache read tweak
-echo "768" > /sys/block/mmcblk0/queue/read_ahead_kb
-echo "640" > /sys/block/mmcblk1/queue/read_ahead_kb
+echo "1024" > /sys/block/mmcblk0/queue/read_ahead_kb
+echo "2048" > /sys/block/mmcblk1/queue/read_ahead_kb
 
 #Enable power efficient workqueues
 chown system:system /sys/module/workqueue/parameters/power_efficient
@@ -2467,3 +2467,14 @@ chmod 666 /sys/module/workqueue/parameters/power_efficient
 echo Y > /sys/module/workqueue/parameters/power_efficient
 chmod 444 /sys/module/workqueue/parameters/power_efficient
 
+#Tweak MSM thermal to 55ºC
+chown system:system /sys/module/msm_thermal/parameters/temp_threshold
+chmod 666 /sys/module/msm_thermal/parameters/temp_threshold
+echo 55 > /sys/module/msm_thermal/parameters/temp_threshold
+chmod 444 /sys/module/msm_thermal/parameters/temp_threshold
+
+#Enable MSM thermal temperature control kernel module
+chown system:system /sys/module/msm_thermal/parameters/enabled
+chmod 666 /sys/module/msm_thermal/parameters/enabled
+echo Y > /sys/module/msm_thermal/parameters/enabled
+chmod 444 /sys/module/msm_thermal/parameters/enabled

@@ -3,7 +3,9 @@
 #
 
 # Fluence props
-ro.qc.sdk.audio.ssr=false
+ro.qc.sdk.audio.ssr=true
+persist.audio.ssr.3mic=false
+persist.audio.ssr.2mic=true
 ro.qc.sdk.audio.fluencetype=fluencepro
 persist.audio.fluence.mode=broadside
 persist.audio.dualmic.config=broadside

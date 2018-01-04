@@ -22,7 +22,8 @@ persist.audio.spkcall_2mic=OFF
 persist.audio.handset_rx_type=DEFAULT
 
 #Audio General Configs
-persist.spkr.cal.duration=0
+persist.speaker.prot.enable=true
+persist.spkr.cal.duration=5
 alsa.mixer.playback.master=DAC1
 persist.audio.aanc.enable=true
 persist.audio.lowlatency.rec=true
@@ -73,7 +74,6 @@ use.voice.path.for.pcm.voip=true
 use.qti.sw.alac.decoder=true
 use.qti.sw.ape.decoder=true
 af.fast_track_multiplier=2
-persist.speaker.prot.enable=true
 flac.sw.decoder.24bit.support=true
 
 #Dolby

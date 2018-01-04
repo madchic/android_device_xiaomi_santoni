@@ -23,7 +23,7 @@ persist.audio.handset_rx_type=DEFAULT
 
 #Audio General Configs
 persist.speaker.prot.enable=true
-persist.spkr.cal.duration=5
+persist.spkr.cal.duration=2
 alsa.mixer.playback.master=DAC1
 persist.audio.aanc.enable=true
 persist.audio.lowlatency.rec=true

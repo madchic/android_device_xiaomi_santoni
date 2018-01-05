@@ -96,11 +96,11 @@
     <ctl name="SPK" value="ZERO" />
     <ctl name="WSA Spk Switch" value="ZERO" />
     <ctl name="SpkrMono WSA_RDAC" value="ZERO" />
-    <ctl name="EAR PA Gain" value="POS_6_DB" />
+    <ctl name="EAR PA Gain" value="POS_7_DB" />
     <ctl name="MICBIAS CAPLESS Switch" value="0" />
     <ctl name="EAR PA Boost" value="ENABLE" />
     <ctl name="SpkrMono BOOST Switch" value="1" />
-    <ctl name="EAR PA Gain" value="POS_1P6_DB" />
+    <ctl name="EAR PA Gain" value="POS_1P7_DB" />
     <ctl name="EAR PA Boost" value="ENABLE" />
     <ctl name="MI2S_RX Channels" value="One" />
     <ctl name="MI2S_TX Channels" value="One" />
@@ -888,8 +888,8 @@
 	<ctl name="MI2S_RX Format" value="S24_3LE" />
         <ctl name="PRI_MI2S_RX Format" value="S24_3LE" />
 	<ctl name="RX2 MIX1 INP1" value="RX2" />
-    	<ctl name="RX2 HPF cut off" value="MIN_3DB_92Hz" />
-	<ctl name="RX2 Digital Volume" value="84" />
+    	<ctl name="RX2 HPF cut off" value="MIN_3DB_75Hz" />
+	<ctl name="RX2 Digital Volume" value="88" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHR" value="Switch" />
         <ctl name="Lineout_1 amp" value="ENABLE"/>
@@ -901,8 +901,8 @@
 	<ctl name="MI2S_RX Format" value="S24_3LE" />
         <ctl name="PRI_MI2S_RX Format" value="S24_3LE" />
         <ctl name="RX1 MIX1 INP1" value="RX1" />
-	<ctl name="RX1 HPF cut off" value="MIN_3DB_92Hz" />
-        <ctl name="RX1 Digital Volume" value="84" />
+	<ctl name="RX1 HPF cut off" value="MIN_3DB_75Hz" />
+        <ctl name="RX1 Digital Volume" value="88" />
         <ctl name="RDAC2 MUX" value="RX1" />
         <ctl name="WSA Spk Switch" value="WSA" />
         <ctl name="SpkrMono WSA_RDAC" value="Switch" />

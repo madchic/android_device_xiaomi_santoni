@@ -23,7 +23,7 @@ persist.audio.handset_rx_type=DEFAULT
 
 #Audio General Configs
 persist.speaker.prot.enable=true
-persist.spkr.cal.duration=0
+persist.spkr.cal.duration=10
 alsa.mixer.playback.master=DAC1
 persist.audio.aanc.enable=true
 persist.audio.lowlatency.rec=true
@@ -154,13 +154,11 @@ perstist.power.usetwilightadj=true
 #GPU Tweaks
 ro.qc.sdk.camera.facialproc=true
 persist.sys.use_16bpp_alpha=1
-hwui.enable_vsync=false
-hwui.disable_vsync=true
 ro.config.disable.hw_accel=false
 ro.max.fling_velocity=14000
 ro.min.fling_velocity=8000
 video.accelerate.hw=1
-debug.composition.type=gpu
+debug.composition.type=c2d
 hw3d.force=1
 debug.qc.hardware=true
 com.qc.hardware=true
@@ -179,9 +177,9 @@ persist.sys.dpmd.nsrm=3
 # Dex2oat limits
 dalvik.vm.dex2oat-flags=--no-watch-dog
 dalvik.vm.boot-dex2oat-threads=8
-dalvik.vm.dex2oat-threads=2
-dalvik.vm.image-dex2oat-threads=2
-dalvik.vm.bg-dex2oat-threads=2
+dalvik.vm.dex2oat-threads=4
+dalvik.vm.image-dex2oat-threads=4
+dalvik.vm.bg-dex2oat-threads=4
 
 #CPU Configs
 ro.core_ctl_min_cpu=0
@@ -225,8 +223,8 @@ persist.debug.coresight.config=stm-events
 # Display
 persist.debug.wfd.enable=1
 persist.hwc.enable_vds=1
-debug.sf.hw=1
-debug.egl.hw=1
+debug.sf.hw=0
+debug.egl.hw=0
 persist.hwc.mdpcomp.enable=true
 dalvik.vm.heapsize=36m
 debug.mdpcomp.logs=0

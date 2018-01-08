@@ -49,8 +49,8 @@
     <ctl name="Voip Evrc Min Max Rate Config" id="1" value="4" />
     <ctl name="Voip Dtx Mode" value="0" />
     <ctl name="TTY Mode" value="Off" />
-    <ctl name="HPHL Volume" value="7" />
-    <ctl name="HPHR Volume" value="7" />
+    <ctl name="HPHL Volume" value="8" />
+    <ctl name="HPHR Volume" value="8" />
     <ctl name="RX1 Digital Volume" value="86" />
     <ctl name="RX2 Digital Volume" value="86" />
     <ctl name="RX3 Digital Volume" value="86" />
@@ -889,7 +889,7 @@
         <ctl name="PRI_MI2S_RX Format" value="S24_3LE" />
 	<ctl name="RX2 MIX1 INP1" value="RX2" />
     	<ctl name="RX2 HPF cut off" value="MIN_3DB_52Hz" />
-	<ctl name="RX2 Digital Volume" value="96" />
+	<ctl name="RX2 Digital Volume" value="97" />
         <ctl name="RDAC2 MUX" value="RX2" />
         <ctl name="HPHR" value="Switch" />
         <ctl name="Lineout_1 amp" value="ENABLE"/>
@@ -902,7 +902,7 @@
         <ctl name="PRI_MI2S_RX Format" value="S24_3LE" />
         <ctl name="RX1 MIX1 INP1" value="RX1" />
 	<ctl name="RX1 HPF cut off" value="MIN_3DB_52Hz" />
-        <ctl name="RX1 Digital Volume" value="96" />
+        <ctl name="RX1 Digital Volume" value="97" />
         <ctl name="RDAC2 MUX" value="RX1" />
         <ctl name="WSA Spk Switch" value="WSA" />
         <ctl name="SpkrMono WSA_RDAC" value="Switch" />

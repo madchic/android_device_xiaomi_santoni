@@ -2443,19 +2443,12 @@ echo "5" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 chmod 444 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
 #Extra system tweaks
-#Power Savings
-echo 3 > /proc/sys/vm/page-cluster
-echo 3000 > /proc/sys/vm/dirty_expire_centisecs
-echo 500 > /proc/sys/vm/dirty_writeback_centisecs
+#Set initial GPU pwrlevel
 echo "5" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
-echo "5120" > /proc/sys/vm/min_free_kbytes;
 
-# Minfree Values
-echo "15728,23592,39321,70778,78643,86507" > /sys/module/lowmemorykiller/parameters/minfree;
-
-#CPU Affinity
-echo "2" > /sys/block/mmcblk0/queue/rq_affinity
-echo "2" > /sys/block/mmcblk1/queue/rq_affinity
+#CPU Affinity, more is faster.
+echo "4" > /sys/block/mmcblk0/queue/rq_affinity
+echo "4" > /sys/block/mmcblk1/queue/rq_affinity
 
 #Cache read tweak
 echo "1024" > /sys/block/mmcblk0/queue/read_ahead_kb

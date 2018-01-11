@@ -1621,7 +1621,7 @@ case "$target" in
 
                 # Enable core control
                 insmod /system/lib/modules/core_ctl.ko
-                echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
+                echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
                 echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
                 echo 74 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
                 echo 42 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
@@ -1629,7 +1629,7 @@ case "$target" in
                 echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster
 
 		#For little cluster
-		echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
+		echo 1 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
                 echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
                 echo 70 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
                 echo 35 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
@@ -2436,16 +2436,25 @@ chmod 666 /sys/class/power_supply/bms/temp_warm
 echo 500 > /sys/class/power_supply/bms/temp_warm
 chmod 644 /sys/class/power_supply/bms/temp_warm
 
-#GPU PowerLevel
+#GPU DefaultPowerLevel - 450MHz
 chown system:system /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 chmod 666 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
-echo "5" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
-chmod 444 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+echo "3" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+chmod 644 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+
+#GPU ThermalPowerLevel - 375MHz
+chown system:system /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel
+chmod 666 /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel
+echo "375000000" > /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel
+chmod 644 /sys/class/kgsl/kgsl-3d0/thermal_pwrlevel
+
+#GPU Per Object Post Processing - Enabled it!
+chown system:system /sys/class/kgsl/kgsl-3d0/popp
+chmod 666 /sys/class/kgsl/kgsl-3d0/popp
+echo "1" > /sys/class/kgsl/kgsl-3d0/popp
+chmod 644 /sys/class/kgsl/kgsl-3d0/popp
 
 #Extra system tweaks
-#Set initial GPU pwrlevel
-echo "5" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
-
 #CPU Affinity, more is faster.
 echo "4" > /sys/block/mmcblk0/queue/rq_affinity
 echo "4" > /sys/block/mmcblk1/queue/rq_affinity

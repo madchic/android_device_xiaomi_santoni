@@ -29,7 +29,7 @@ fmas.spkr_sgain=0
 
 #Audio General Configs
 persist.speaker.prot.enable=true # protect and calibrate speakers coefficients.
-persist.spkr.cal.duration=0 # 30 minutes for qualcomm speaker calibration 
+persist.spkr.cal.duration=5 # 5 minutes for qualcomm speaker calibration. 
 alsa.mixer.playback.master=DAC1
 persist.audio.aanc.enable=true
 persist.audio.lowlatency.rec=true
@@ -38,7 +38,6 @@ voice.record.conc.disabled=false
 voice.voip.conc.disabled=true
 voice.conc.fallbackpath=deep-buffer
 flac.sw.decoder.24bit.support=true
-audio_hal.period_size=784
 audio.parser.ip.buffer.size=512640
 audio.playback.mch.downsample=false
 
@@ -113,12 +112,9 @@ persist.af.resample=48000
 ro.audio.samplerate=48000
 persist.audio.samplerate=48000
 ro.audio.pcm.samplerate=48000
-persist.audio.native.44.1kHz=true
 persist.audio.native.48kHz=true
-pcm.channels=8
 persist.audio.SupportHTCHWAEC=1
 clock.allow_streaming_errors=false
-defaults.pcm.rate_converter=speexrate_best
 defaults.pcm.rate_converter=samplerate_best
 persist.audio.vr.enable=true
 persist.audio.voice.clarity=ON

@@ -29,7 +29,7 @@ fmas.spkr_sgain=0
 
 #Audio General Configs
 persist.speaker.prot.enable=true # protect and calibrate speakers coefficients.
-persist.spkr.cal.duration=5 # 5 minutes for qualcomm speaker calibration. 
+persist.spkr.cal.duration=0
 alsa.mixer.playback.master=DAC1
 persist.audio.aanc.enable=true
 persist.audio.lowlatency.rec=true

@@ -2442,6 +2442,12 @@ chmod 666 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 echo "3" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 chmod 644 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 
+#GPU DefaultMaxFreq - 525MHz - User can set up to 605MHz.
+chown system:system /sys/class/kgsl/kgsl-3d0/max_clock_mhz
+chmod 666 /sys/class/kgsl/kgsl-3d0/max_clock_mhz
+echo "525" > /sys/class/kgsl/kgsl-3d0/max_clock_mhz
+chmod 644 /sys/class/kgsl/kgsl-3d0/max_clock_mhz
+
 #GPU Per Object Post Processing - Enabled it!
 chown system:system /sys/class/kgsl/kgsl-3d0/popp
 chmod 666 /sys/class/kgsl/kgsl-3d0/popp
@@ -2450,8 +2456,8 @@ chmod 644 /sys/class/kgsl/kgsl-3d0/popp
 
 #Extra system tweaks
 #CPU Affinity.
-echo "4" > /sys/block/mmcblk0/queue/rq_affinity
-echo "2" > /sys/block/mmcblk1/queue/rq_affinity
+echo "2" > /sys/block/mmcblk0/queue/rq_affinity
+echo "1" > /sys/block/mmcblk1/queue/rq_affinity
 
 #Cache read tweak
 echo "1024" > /sys/block/mmcblk0/queue/read_ahead_kb

@@ -21,6 +21,9 @@ persist.audio.voicecall.mic=0
 persist.audio.spkcall_2mic=OFF
 persist.audio.handset_rx_type=DEFAULT
 
+#Period size for ull playback & low latency record
+audio_hal.period_multiplier=2
+
 #Speaker
 fmas.spkr_6ch=35,20,110
 fmas.spkr_2ch=35,25
@@ -61,6 +64,7 @@ audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
 audio.offload.disable=false
 audio.offload.enable=true
+audio.offload.video=true
 audio.offload.gapless.enabled=true
 audio.offload.multiple.enabled=true
 audio.offload.passthrough=true
@@ -71,13 +75,15 @@ audio.offload.multiaac.enable=true
 #Low Power Audio and tunneling disable for HiFi processing 
 lpa.decode=false
 lpa.use-stagefright=false
-tunnel.decode=false
-tunnel.audiovideo.decode=false
-tunnel.audio.decode=false
-tunnel.audio.encode=false
-tunnel.decode=false
-tunnel.encode=false
-tunnel.multiple=false
+
+#Send all audio processing to hardware DSP
+tunnel.decode=true
+tunnel.audiovideo.decode=true
+tunnel.audio.decode=true
+tunnel.audio.encode=true
+tunnel.decode=true
+tunnel.encode=true
+tunnel.multiple=true
 
 #Deep_buffer
 audio.deep_buffer.media=true
@@ -201,6 +207,8 @@ persist.env.fastdorm.enabled=true
 persist.sys.dpmd.nsrm=3
 persist.ril.uart.flowctrl=10
 
+# Fast charge
+persist.hvdcp.allow_opti=1
 
 # Dex2oat limits
 dalvik.vm.dex2oat-flags=--no-watch-dog
@@ -235,6 +243,12 @@ persist.camera.gyro.disable=0
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk,com.whatsapp,com.google.android.GoogleCamera
 persist.camera.thermal.mode=fps
 ro.media.enc.hprof.vid.fps=65
+
+# Additional i/p buffer in case of encoder DCVS
+vidc.enc.dcvs.extra-buff-count=2
+
+# Set default power mode to low power for encoder
+vidc.debug.perf.mode=2
 
 #Internet
 ro.ril.enable.dtm=1

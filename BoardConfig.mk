@@ -19,7 +19,7 @@ LOCAL_PATH := device/xiaomi/santoni
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Ninja
-USE_NINJA := false
+# USE_NINJA := false
 
 TARGET_GLOBAL_CFLAGS += -ftree-vectorize -mfpu=neon -mfloat-abi=hard -march=armv8-a -mtune=cortex-a53 -mneon-for-64bits
 TARGET_GLOBAL_CPPFLAGS += -ftree-vectorize -mfpu=neon -mfloat-abi=hard -march=armv8-a -mtune=cortex-a53 -mneon-for-64bits

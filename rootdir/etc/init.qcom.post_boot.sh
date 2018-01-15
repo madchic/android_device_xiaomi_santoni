@@ -1554,6 +1554,7 @@ case "$target" in
                 # enable governor for perf cluster
                 echo 1 > /sys/devices/system/cpu/cpu0/online
                 echo "interactive" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+		echo 1401000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
                 echo "19000 1094400:39000" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay
                 echo 85 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load
                 echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
@@ -1566,6 +1567,7 @@ case "$target" in
 
                 # enable governor for power cluster
                 echo 1 > /sys/devices/system/cpu/cpu4/online
+		echo 1094400 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
                 echo "interactive" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
                 echo 39000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
                 echo 96 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load

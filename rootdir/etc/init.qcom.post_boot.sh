@@ -1623,20 +1623,12 @@ case "$target" in
 
                 # Enable core control
                 insmod /system/lib/modules/core_ctl.ko
-                echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
+                echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
                 echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
                 echo 74 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
                 echo 42 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
                 echo 92 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
                 echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster
-
-		#For little cluster
-		echo 2 > /sys/devices/system/cpu/cpu4/core_ctl/min_cpus
-                echo 4 > /sys/devices/system/cpu/cpu4/core_ctl/max_cpus
-                echo 70 > /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres
-                echo 35 > /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres
-                echo 75 > /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms
-                echo 0 > /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster
 
                 # re-enable thermal core_control
                 echo 1 > /sys/module/msm_thermal/core_control/enabled

@@ -71,6 +71,11 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
+    libacdb-fts \
+    libacdbloader \
+    libacdbmapper \
+    libacdbrtac \
+    libaudcal \
     audio.a2dp.default \
     audio.primary.msm8937 \
     audio.r_submix.default \
@@ -79,6 +84,10 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libqcompostprocbundle \
+    libqcbassboost \
+    libqcreverb \
+    libqcvirt
+    libtinycompress \
     tinymix
 
 PRODUCT_PACKAGES += \

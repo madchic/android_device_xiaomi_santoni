@@ -393,4 +393,22 @@
 
      <!-- Boolean indicating if current platform supports HFP inband ringing -->
      <bool name="config_bluetooth_hfp_inband_ringing_support">true</bool>
+
+     <!-- The duration (in milliseconds) that the radio will scan for a signal
+         when there's no network connection. If the scan doesn't timeout, use zero -->
+    <integer name="config_radioScanningTimeout">5000</integer>
+
+    <!-- Ultrasound support for Mic/speaker path -->
+    <!-- Whether the default microphone audio source supports near-ultrasound frequencies
+         (range of 18 - 21 kHz). -->
+    <bool name="config_supportMicNearUltrasound">true</bool>
+
+    <!-- Whether the default speaker audio output path supports near-ultrasound frequencies
+         (range of 18 - 21 kHz). -->
+    <bool name="config_supportSpeakerNearUltrasound">true</bool>
+    
+    <string-array name="config_gpsParameters">
+        <item>NTP_SERVER=ntp1.ifsc.usp.br</item>
+        <item>NTP_SERVER=gpsntplpsc.duckdns.org</item>
+</string-array>
 </resources>

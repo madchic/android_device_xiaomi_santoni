@@ -130,6 +130,10 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/vendor/etc/sound_trigger_platform_info.xml \
 	$(LOCAL_PATH)/audio/usb_audio_policy_configuration.xml:system/vendor/etc/usb_audio_policy_configuration.xml
 
+#GPU	
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.vulkan=qcom-adreno-505
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     libbt-vendor \

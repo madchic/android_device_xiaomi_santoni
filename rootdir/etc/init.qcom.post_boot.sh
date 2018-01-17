@@ -1623,7 +1623,7 @@ case "$target" in
 
                 # Enable core control
                 insmod /system/lib/modules/core_ctl.ko
-                echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
+                echo 2 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
                 echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
                 echo 74 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
                 echo 42 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres

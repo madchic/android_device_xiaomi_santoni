@@ -86,7 +86,7 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     libqcbassboost \
     libqcreverb \
-    libqcvirt
+    libqcvirt \
     libtinycompress \
     tinymix
 

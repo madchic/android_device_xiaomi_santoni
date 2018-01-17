@@ -1577,18 +1577,18 @@ case "$target" in
                 echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor
                 echo 768000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 
-                # Disable L2-GDHS low power modes
-                echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
-                echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/suspend_enabled
+                # Enable some L2-GDHS low power modes
+                echo Y > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
+                echo Y > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/suspend_enabled
                 echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled
                 echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/suspend_enabled
 
-                # Disable E3 low power modes
-                echo N > /sys/module/lpm_levels/system/system-pc/idle_enabled
+                # Enable E3 low power modes
+                echo Y > /sys/module/lpm_levels/system/system-pc/idle_enabled
 
-                # Disable CCI WFI and CCI RETENTION Low power modes
-                echo N > /sys/module/lpm_levels/system/system-wfi/idle_enabled
-                echo N > /sys/module/lpm_levels/system/system-ret/idle_enabled
+                # Enable CCI WFI and CCI RETENTION Low power modes
+                echo Y > /sys/module/lpm_levels/system/system-wfi/idle_enabled
+                echo Y > /sys/module/lpm_levels/system/system-ret/idle_enabled
 
                 # Bring up all cores online
                 echo 1 > /sys/devices/system/cpu/cpu1/online
@@ -1598,9 +1598,9 @@ case "$target" in
                 echo 1 > /sys/devices/system/cpu/cpu5/online
                 echo 1 > /sys/devices/system/cpu/cpu6/online
                 echo 1 > /sys/devices/system/cpu/cpu7/online
-                # Disable L2-GDHS low power modes
-                echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
-                echo N > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/suspend_enabled
+                # Enable some L2-GDHS low power modes
+                echo Y > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled
+                echo Y > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/suspend_enabled
                 echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/idle_enabled
                 echo N > /sys/module/lpm_levels/system/perf/perf-l2-gdhs/suspend_enabled
 
@@ -2394,3 +2394,75 @@ case "$console_config" in
         echo "Enable console config to $console_config"
         ;;
 esac
+
+#Extra tweaks for redmi 4X
+#DAC High Performance mode and impedance detecion enable
+chmod 666 /sys/module/snd_soc_wcd9330/parameters/high_perf_mode
+echo 1 > /sys/module/snd_soc_wcd9330/parameters/high_perf_mode
+chmod 444 /sys/module/snd_soc_wcd9330/parameters/high_perf_mode
+chmod 666 /sys/module/snd_soc_wcd9xxx/parameters/impedance_detect_en
+echo 1 > /sys/module/snd_soc_wcd9xxx/parameters/impedance_detect_en
+chmod 444 /sys/module/snd_soc_wcd9xxx/parameters/impedance_detect_en
+chmod 666 /sys/module/snd_soc_wcd_mbhc/parameters/det_extn_cable_en
+echo 1 > /sys/module/snd_soc_wcd_mbhc/parameters/det_extn_cable_en
+chmod 444 /sys/module/snd_soc_wcd_mbhc/parameters/det_extn_cable_en
+
+#Quick Charge 3.0 Specific settings:
+#Battery Maximum charging current delivered to battery
+echo 2500000 > /sys/class/power_supply/battery/constant_charge_current_max
+
+#Maximum USB_DCP USB_HVDCP and USB_HVDCP3 currents
+echo 2200 > /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma
+echo 2000 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma
+echo 3000 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp3_icl_ma
+echo 2000 > /sys/module/dwc3_msm/parameters/hvdcp_max_current
+echo 2200 > /sys/module/dwc3_msm/parameters/dcp_max_current
+
+#USB Phy settings
+echo 2200 > /sys/module/phy_msm_usb/parameters/dcp_max_current
+echo 2000 > /sys/module/phy_msm_usb/parameters/hvdcp_max_current
+
+#Battery temperature control
+chown system:system /sys/class/power_supply/bms/temp_warm
+chmod 666 /sys/class/power_supply/bms/temp_warm
+echo 500 > /sys/class/power_supply/bms/temp_warm
+chmod 644 /sys/class/power_supply/bms/temp_warm
+
+#GPU DefaultPowerLevel - 450MHz
+chown system:system /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+chmod 666 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+echo "3" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+chmod 644 /sys/class/kgsl/kgsl-3d0/default_pwrlevel
+
+#GPU DefaultMaxFreq - 525MHz - User can set up to 605MHz.
+chown system:system /sys/class/kgsl/kgsl-3d0/max_clock_mhz
+chmod 666 /sys/class/kgsl/kgsl-3d0/max_clock_mhz
+echo "525" > /sys/class/kgsl/kgsl-3d0/max_clock_mhz
+chmod 644 /sys/class/kgsl/kgsl-3d0/max_clock_mhz
+
+#GPU Per Object Post Processing - Enabled it!
+chown system:system /sys/class/kgsl/kgsl-3d0/popp
+chmod 666 /sys/class/kgsl/kgsl-3d0/popp
+echo "1" > /sys/class/kgsl/kgsl-3d0/popp
+chmod 644 /sys/class/kgsl/kgsl-3d0/popp
+
+#Extra system tweaks
+#CPU Affinity.
+echo "2" > /sys/block/mmcblk0/queue/rq_affinity
+echo "1" > /sys/block/mmcblk1/queue/rq_affinity
+
+#Cache read tweak
+echo "1024" > /sys/block/mmcblk0/queue/read_ahead_kb
+echo "2048" > /sys/block/mmcblk1/queue/read_ahead_kb
+
+#Enable power efficient workqueues
+chown system:system /sys/module/workqueue/parameters/power_efficient
+chmod 666 /sys/module/workqueue/parameters/power_efficient
+echo Y > /sys/module/workqueue/parameters/power_efficient
+chmod 444 /sys/module/workqueue/parameters/power_efficient
+
+#Enable MSM thermal temperature control kernel module
+chown system:system /sys/module/msm_thermal/parameters/enabled
+chmod 666 /sys/module/msm_thermal/parameters/enabled
+echo Y > /sys/module/msm_thermal/parameters/enabled
+chmod 444 /sys/module/msm_thermal/parameters/enabled

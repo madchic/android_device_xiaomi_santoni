@@ -2,45 +2,185 @@
 # system.prop for santoni
 #
 
-# Audio
+# Fluence
 vendor.voice.playback.conc.disabled=true
 vendor.voice.record.conc.disabled=false
 vendor.voice.voip.conc.disabled=true
 vendor.voice.conc.fallbackpath=deep-buffer
 vendor.audio.parser.ip.buffer.size=0
 vendor.audio_hal.period_size=192
-ro.vendor.audio.sdk.ssr=false
-ro.vendor.audio.sdk.fluencetype=fluence
+ro.vendor.audio.sdk.ssr=true
+ro.vendor.audio.sdk.fluencetype=fluencepro
+persist.vendor.audio.fluence.mode=broadside
+persist.vendor.audio.dualmic.config=broadside
+persist.vendor.audio.handset.mic=digital
+persist.vendor.audio.headset.mic=analog
 persist.vendor.audio.fluence.voicecall=true
-persist.vendor.audio.fluence.voicerec=true
+persist.vendor.audio.fluence.voicerec=false
+persist.vendor.audio.fluence.voicecomm=true
 persist.vendor.audio.fluence.speaker=true
-audio.offload.disable=true
-vendor.audio.tunnel.encode=false
-vendor.audio.offload.buffer.size.kb=64
-audio.offload.min.duration.secs=30
-audio.offload.video=true
-vendor.audio.offload.track.enable=true
+persist.vendor.audio.fluence.spk.mono=true
+persist.vendor.audio.fluence.audiorec=false
+
+#Speakers calibration
+persist.vendor.audio.speaker.prot.enable=true # protect and calibrate speakers coefficients.
+persist.vendor.audio.calfile0=/etc/acdbdata/QRD/msm8920-sku7-snd-card/QRD_SKU7_Bluetooth_cal.acdb
+persist.vendor.audio.calfile1=/etc/acdbdata/QRD/msm8920-sku7-snd-card/QRD_SKU7_General_cal.acdb
+persist.vendor.audio.calfile2=/etc/acdbdata/QRD/msm8920-sku7-snd-card/QRD_SKU7_Global_cal.acdb
+persist.vendor.audio.calfile3=/etc/acdbdata/QRD/msm8920-sku7-snd-card/QRD_SKU7_Handset_cal.acdb
+persist.vendor.audio.calfile4=/etc/acdbdata/QRD/msm8920-sku7-snd-card/QRD_SKU7_Hdmi_cal.acdb
+persist.vendor.audio.calfile5=/etc/acdbdata/QRD/msm8920-sku7-snd-card/QRD_SKU7_Headset_cal.acdb
+persist.vendor.audio.calfile6=/etc/acdbdata/QRD/msm8920-sku7-snd-card/QRD_SKU7_Speaker_cal.acdb
+
+#Speakers
+fmas.spkr_6ch=35,20,110
+fmas.spkr_2ch=35,25
+fmas.spkr_angles=10
+fmas.spkr_sgain=0
+
+#Send all audio processing to hardware DSP
+vendor.audio.tunnel.encode=true
+vendor.audio.tunnel.decode=true
+vendor.audio.tunnel.multiple=true
+
+#Low Power Audio and tunneling disable for HiFi processing
+persist.vendor.audio.samplerate=96000 
+ro.vendor.audio.pcm.samplerate=96000
+lpa.decode=false
+lpa.use-stagefright=false
+defaults.pcm.rate_converter=samplerate_best
+persist.vendor.audio.vr.enable=true
+persist.vendor.audio.voice.clarity=ON
+persist.vendor.audio.hifi_dac=ON
+hpx_send_params=1
+ro.config.hw_dts=true
+ro.config.hpx_support=true
+persist.vendor.audio.ns.enabled=ON
+persist.vendor.audio.ssr.3mic=false
+persist.bt.enableAptXHD=true
+persist.bt.enableAptX=true
+bt.max.hfpclient.connections=1
+persist.bt.a2dp.aac_disable=true
+persist.bt.a2dp.aptx_disable=false
+persist.bt.a2dp.aptx_hd_disable=false
+persist.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac
+vendor.audio.legacy.postproc=true
+vendor.mpq.audio.decode=true
+persist.vendor.audio.FFSP.enable=true 
+vendor.audio.nat.codec.enabled=true 
+persist.vendor.audio.hifi.int_codec=true 
+persist.vendor.audio.hifi.volume=1
+use.dts_eagle=true
+persist.vendor.headset.anc.type=feedback
+
+#Deep_buffer
 audio.deep_buffer.media=true
+
+#Offload
+vendor.audio.offload.buffer.size.kb=2256
+audio.offload.min.duration.secs=30
 vendor.audio.playback.mch.downsample=true
 vendor.voice.path.for.pcm.voip=true
 vendor.audio.use.sw.alac.decoder=true
 vendor.audio.use.sw.ape.decoder=true
+vendor.audio.offload.pcm.enable=true
+vendor.audio.offload.track.enabled=true
+vendor.audio.offload.16bit.enable=true
+vendor.audio.offload.24bit.enable=true
+vendor.audio.offload.pcm.16bit.enable=true
+vendor.audio.offload.pcm.24bit.enable=true
+vendor.audio.offload.disable=false
+vendor.audio.offload.enable=true
+vendor.audio.offload.video=true
 vendor.audio.offload.gapless.enabled=true
-vendor.audio.offload.multiple.enabled=false
+vendor.audio.offload.multiple.enabled=true
+vendor.audio.offload.passthrough=true
+vendor.av.offload.enable=true
+vendor.av.streaming.offload.enable=true
+vendor.audio.offload.multiaac.enable=true
+
+#Optimizations
 vendor.audio.safx.pbe.enabled=true
-vendor.audio.pp.asphere.enabled=false
+vendor.audio.pp.asphere.enabled=true
 vendor.audio.dolby.ds2.enabled=true
 af.fast_track_multiplier=2
-persist.vendor.audio.speaker.prot.enable=false
-vendor.audio.offload.multiaac.enable=true
-vendor.audio.dolby.ds2.hardbypass=true
 vendor.audio.flac.sw.decoder.24bit=true
+
+#Dolby
+vendor.audio.dolby.dax.enabled=true
+vendor.audio.dolby.dax.hardbypass=true
+vendor.audio.dolby.ds1.enabled=true
+vendor.audio.dolby.ds1.hardbypass=true
+vendor.audio.dolby.ds2.enabled=true
+vendor.audio.dolby.ds2.hardbypass=true
+ro.config.hw_dolby=true
+vendor.audio.ds1.metainfo.key=273
+dmid=-1286820014
+dolby.audio.sink.info=speaker
+dolby.monospeaker=true
+
+#tweak ambient notification they're easy to understand
+doze.display.supported=true
+doze.pulse.notifications=true
+doze.use.accelerometer=true
+doze.pulse.duration.in=1500
+doze.pulse.duration.visible=6000
+doze.pulse.duration.out=2500
+doze.pulse.schedule=1s,10s,30s,60s,120s
+doze.pulse.brightness=5
+doze.pulse.schedule.resets=5
+doze.shake.acc.threshold=10
+
+#Power Saving
+ro.config.hw_power_saving=true
+persist.radio.add_power_save=1
+wifi.supplicant_scan_interval=600
+profiler.force_disable_ulog=true
+profiler.force_disable_err_rpt=true
+profiler.force_disable_err_rpt=1
+profiler.force_disable_ulog=1
+ro.ril.disable.power.collapse=0
+ro.ril.power_collapse=1
+perstist.power.usetwilightadj=true
+
+#GPU Tweaks
+ro.qc.sdk.camera.facialproc=true
+persist.sys.use_16bpp_alpha=1
+ro.config.disable.hw_accel=false
+ro.max.fling_velocity=14000
+ro.min.fling_velocity=8000
+video.accelerate.hw=1
+debug.composition.type=c2d
+persist.sys.composition.type=c2d
+hw2d.force=1
+hw3d.force=1
+debug.qc.hardware=true
+com.qc.hardware=true
+ro.media.enc.jpeg.quality=100
+persist.sys.use_dithering=1
+
+#WiFi Calling
+persist.data.iwlan.enable=true
+persist.dbg.wfc_avail_ovr=1
+
+# Data Power Manager (DPM)
+ro.config.hw_fast_dormancy=1
+persist.cust.tel.eons=1
+persist.env.fastdorm.enabled=true
+persist.sys.dpmd.nsrm=3
+persist.ril.uart.flowctrl=10
+
+# Fast charge
+persist.hvdcp.allow_opti=1
 
 # Bluetooth
 bluetooth.hfp.client=1
 ro.qualcomm.bt.hci_transport=smd
 ro.bluetooth.hfp.ver=1.7
 qcom.bluetooth.soc=smd
+
+# Camera2 API
+persist.camera.HAL3.enabled=1
 
 # Camera
 persist.camera.isp.clock.optmz=0
@@ -54,6 +194,8 @@ persist.camera.imglib.cac3=2
 camera.lowpower.record.enable=1
 persist.camera.gyro.disable=0
 camera.hal1.packagelist=com.skype.raider,com.google.android.talk,com.whatsapp,com.google.android.GoogleCamera
+persist.camera.thermal.mode=fps
+ro.media.enc.hprof.vid.fps=65
 
 # Cne
 persist.cne.feature=1
@@ -178,6 +320,12 @@ ro.sys.fw.empty_app_percent=50
 ro.sys.fw.trim_empty_percent=100
 ro.sys.fw.trim_cache_percent=100
 ro.sys.fw.trim_enable_memory=2147483648
+
+# Additional i/p buffer in case of encoder DCVS
+vidc.enc.dcvs.extra-buff-count=2
+
+# Set default power mode to low power for encoder
+vidc.debug.perf.mode=2
 
 # Wifi
 wifi.interface=wlan0

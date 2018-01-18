@@ -2409,18 +2409,18 @@ chmod 444 /sys/module/snd_soc_wcd_mbhc/parameters/det_extn_cable_en
 
 #Quick Charge 3.0 Specific settings:
 #Battery Maximum charging current delivered to battery
-echo 2500000 > /sys/class/power_supply/battery/constant_charge_current_max
+echo 3000000 > /sys/class/power_supply/battery/constant_charge_current_max
 
 #Maximum USB_DCP USB_HVDCP and USB_HVDCP3 currents
-echo 2200 > /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma
-echo 2000 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma
-echo 3000 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp3_icl_ma
-echo 2000 > /sys/module/dwc3_msm/parameters/hvdcp_max_current
-echo 2200 > /sys/module/dwc3_msm/parameters/dcp_max_current
+echo 2000 > /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma
+echo 1650 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma
+echo 2400 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp3_icl_ma
+echo 1650 > /sys/module/dwc3_msm/parameters/hvdcp_max_current
+echo 2000 > /sys/module/dwc3_msm/parameters/dcp_max_current
 
 #USB Phy settings
-echo 2200 > /sys/module/phy_msm_usb/parameters/dcp_max_current
-echo 2000 > /sys/module/phy_msm_usb/parameters/hvdcp_max_current
+echo 2000 > /sys/module/phy_msm_usb/parameters/dcp_max_current
+echo 1650 > /sys/module/phy_msm_usb/parameters/hvdcp_max_current
 
 #Battery temperature control
 chown system:system /sys/class/power_supply/bms/temp_warm

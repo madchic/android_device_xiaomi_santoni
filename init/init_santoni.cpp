@@ -46,8 +46,8 @@ char const *heapminfree;
 char const *heapmaxfree;
 char const *large_cache_height;
 
-using android::base::GetProperty;
-
+using android::init::property_set;
+using android::init::import_kernel_cmdline;
 static std::string board_id;
 
 static void import_cmdline(const std::string& key,

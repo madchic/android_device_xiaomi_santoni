@@ -221,7 +221,7 @@ TARGET_PROVIDES_KEYMASTER := true
 
 # Lineage Hardware
 BOARD_HARDWARE_CLASS += \
-    $(LOCAL__PATH)/lineagehw
+    $(DEVICE__PATH)/lineagehw
 
 # Media
 TARGET_HAVE_SIGNED_VENUS_FW := true

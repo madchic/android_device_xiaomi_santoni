@@ -34,10 +34,10 @@
 #include <sys/sysinfo.h>
 
 #include <android-base/properties.h>
+#include "vendor_init.h"
 #include "property_service.h"
 #include "log.h"
 #include "util.h"
-#include "vendor_init.h"
 
 char const *heapstartsize;
 char const *heapgrowthlimit;
@@ -129,7 +129,7 @@ void check_device()
 
 void init_variant_properties()
 {
-    if (android::base::GetProperty("ro.lineage.device","") != "santoni")
+    if (GetProperty("ro.lineage.device", "") != "santoni")
         return;
 
     import_kernel_cmdline(0, import_cmdline);

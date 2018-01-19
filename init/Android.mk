@@ -24,7 +24,4 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := init_santoni.cpp
 LOCAL_STATIC_LIBRARIES := libbase
 
-LOCAL_STATIC_LIBRARIES := \
-	libbase
- 
 include $(BUILD_STATIC_LIBRARY)

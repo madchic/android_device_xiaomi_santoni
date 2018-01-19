@@ -25,7 +25,6 @@ LOCAL_SRC_FILES := init_santoni.cpp
 LOCAL_STATIC_LIBRARIES := libbase
 
 LOCAL_STATIC_LIBRARIES := \
-	libbase \
-        libselinux
+	libbase
  
 include $(BUILD_STATIC_LIBRARY)

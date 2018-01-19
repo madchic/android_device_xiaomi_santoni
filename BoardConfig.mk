@@ -220,8 +220,8 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_santoni
 TARGET_PROVIDES_KEYMASTER := true
 
 # Lineage Hardware
-BOARD_HARDWARE_CLASS += \
-    $(LOCAL__PATH)/lineagehw
+#BOARD_HARDWARE_CLASS += \
+#    $(LOCAL__PATH)/lineagehw
 
 # Media
 TARGET_HAVE_SIGNED_VENUS_FW := true

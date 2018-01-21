@@ -28,6 +28,11 @@ TARGET_GLOBAL_CPPFLAGS += -ftree-vectorize -mfpu=neon -mfloat-abi=hard -march=ar
 ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_VFP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
+BOARD_USES_ADRENO := true
+
+# Enable to use the CPUSETS feature
+ENABLE_CPUSETS := true
+
 TARGET_CPU_CORTEX_A53 := true
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a

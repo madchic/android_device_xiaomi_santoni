@@ -1623,11 +1623,11 @@ case "$target" in
 
                 # Enable core control
                 insmod /system/lib/modules/core_ctl.ko
-                echo 2 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
+                echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
                 echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
-                echo 74 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
-                echo 42 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
-                echo 92 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
+                echo 92 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
+                echo 73 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
+                echo 100 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
                 echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster
 
                 # re-enable thermal core_control
@@ -2411,18 +2411,18 @@ chmod 444 /sys/module/snd_soc_wcd_mbhc/parameters/det_extn_cable_en
 
 #Quick Charge 3.0 Specific settings:
 #Battery Maximum charging current delivered to battery
-echo 3000000 > /sys/class/power_supply/battery/constant_charge_current_max
+echo 2500000 > /sys/class/power_supply/battery/constant_charge_current_max
 
 #Maximum USB_DCP USB_HVDCP and USB_HVDCP3 currents
-echo 2000 > /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma
-echo 1650 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma
-echo 2400 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp3_icl_ma
-echo 1650 > /sys/module/dwc3_msm/parameters/hvdcp_max_current
-echo 2000 > /sys/module/dwc3_msm/parameters/dcp_max_current
+echo 1500 > /sys/module/qpnp_smbcharger/parameters/default_dcp_icl_ma
+echo 1600 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp_icl_ma
+echo 2200 > /sys/module/qpnp_smbcharger/parameters/default_hvdcp3_icl_ma
+echo 1600 > /sys/module/dwc3_msm/parameters/hvdcp_max_current
+echo 1500 > /sys/module/dwc3_msm/parameters/dcp_max_current
 
 #USB Phy settings
-echo 2000 > /sys/module/phy_msm_usb/parameters/dcp_max_current
-echo 1650 > /sys/module/phy_msm_usb/parameters/hvdcp_max_current
+echo 1500 > /sys/module/phy_msm_usb/parameters/dcp_max_current
+echo 1600 > /sys/module/phy_msm_usb/parameters/hvdcp_max_current
 
 #Battery temperature control
 chown system:system /sys/class/power_supply/bms/temp_warm
@@ -2451,7 +2451,7 @@ chmod 644 /sys/class/kgsl/kgsl-3d0/popp
 #Extra system tweaks
 #CPU Affinity.
 echo "2" > /sys/block/mmcblk0/queue/rq_affinity
-echo "1" > /sys/block/mmcblk1/queue/rq_affinity
+echo "2" > /sys/block/mmcblk1/queue/rq_affinity
 
 #Cache read tweak
 echo "1024" > /sys/block/mmcblk0/queue/read_ahead_kb

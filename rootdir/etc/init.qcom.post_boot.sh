@@ -1560,24 +1560,24 @@ case "$target" in
                 echo 20000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
                 echo 1094400 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq
                 echo 0 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy
-                echo "1 960000:85 1094400:90 1344000:80" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
+                echo "1 422400:45 652800:60 844800:75 960000:85 1094400:90 1344000:95" > /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads
                 echo 40000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time
                 echo 40000 > /sys/devices/system/cpu/cpu0/cpufreq/interactive/sampling_down_factor
-                echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+                echo 422400 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 
                 # enable governor for power cluster
                 echo 1 > /sys/devices/system/cpu/cpu4/online
 		echo 1094400 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
                 echo "interactive" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
                 echo 39000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay
-                echo 96 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
+                echo 84 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load
                 echo 20000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate
-                echo 768000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
+                echo 460000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq
                 echo 0 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy
-                echo "1 768000:96" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
+                echo "1 345600:72 460800:84 768000:92 902400:98" > /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads
                 echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time
                 echo 40000 > /sys/devices/system/cpu/cpu4/cpufreq/interactive/sampling_down_factor
-                echo 768000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
+                echo 345600 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 
                 # Enable L2-GDHS low power modes
                 echo Y > /sys/module/lpm_levels/system/pwr/pwr-l2-gdhs/idle_enabled

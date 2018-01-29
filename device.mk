@@ -130,7 +130,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Camera
 PRODUCT_PACKAGES += \
     libshim_camera \
-    Snap
+    camera.msm8953 \
+    libmm-qcamera \
+    libboringssl-compat \
+    libstlport \
+    Snap \
+    Camera2
 
 # Display
 PRODUCT_PACKAGES += \

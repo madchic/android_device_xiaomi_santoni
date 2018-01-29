@@ -129,8 +129,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    libbson \
     libshim_camera \
-    camera.msm8953 \
+    camera.msm8937 \
     libmm-qcamera \
     libboringssl-compat \
     libstlport \
